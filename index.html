@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To‑Do — Daily Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="app-header" role="banner">
+        <div class="container header-inner">
+            <h1 class="app-title">To‑Do</h1>
+            <div class="header-actions">
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+                    <span class="icon" aria-hidden="true"> Syed Mujtaba Sherazi</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main" class="container" role="main">
+        <section class="todo" aria-labelledby="todo-heading">
+            <h2 id="todo-heading" class="visually-hidden">Task manager</h2>
+
+            <form id="newTaskForm" class="task-form" autocomplete="off" aria-label="Add a new task">
+                <label for="taskInput" class="visually-hidden">New task</label>
+                <input id="taskInput" name="task" type="text" placeholder="Add a task and press Enter" required maxlength="200">
+                <button type="submit" class="primary">Add</button>
+            </form>
+
+            <div class="controls" role="toolbar" aria-label="Task controls">
+                <div class="filters" role="radiogroup" aria-label="Filter tasks">
+                    <input type="radio" id="filter-all" name="filter" value="all" checked>
+                    <label for="filter-all">All</label>
+                    <input type="radio" id="filter-active" name="filter" value="active">
+                    <label for="filter-active">Active</label>
+                    <input type="radio" id="filter-completed" name="filter" value="completed">
+                    <label for="filter-completed">Completed</label>
+                </div>
+                <div class="controls-right">
+                    <span id="itemsLeft" aria-live="polite">0 items left</span>
+                    <button id="clearCompleted" class="ghost" type="button">Clear completed</button>
+                </div>
+            </div>
+
+            <ul id="taskList" class="task-list" aria-label="Tasks"></ul>
+
+            <footer class="footer">
+                <small>Tip: Double‑click a task to edit. Use Enter to save, Esc to cancel.</small>
+            </footer>
+        </section>
+    </main>
+
+    <template id="taskItemTemplate">
+        <li class="task" draggable="true">
+            <div class="task-left">
+                <input class="toggle" type="checkbox" aria-label="Mark complete">
+                <label class="title"></label>
+                <input class="edit" type="text" aria-label="Edit task" />
+            </div>
+            <div class="task-actions">
+                <button class="icon-btn edit-btn" type="button" aria-label="Edit task" title="Edit">✏️</button>
+                <button class="icon-btn delete-btn" type="button" aria-label="Delete task" title="Delete">🗑️</button>
+            </div>
+        </li>
+    </template>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
+
+

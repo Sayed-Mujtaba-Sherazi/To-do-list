@@ -1,0 +1,41 @@
+:root{--bg: #0f172a;--bg-elev: #111827;--text: #e5e7eb;--muted:#94a3b8;--primary:#6366f1;--primary-600:#5457ea;--ring: #818cf8;--card:#0b1220;--border:#1f2937;--task:#0c1424;--success:#22c55e;--danger:#ef4444}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0b1220, #060913 60%);color:var(--text);-webkit-font-smoothing:antialiased;}
+.container{max-width:760px;margin:0 auto;padding:24px}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:#111827;color:#fff;padding:8px 12px;border-radius:8px;z-index:999}
+.app-header{position:sticky;top:0;background:rgba(11,18,32,.6);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border);z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+.app-title{margin:0;font-weight:700;letter-spacing:.4px;font-size:22px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:170px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--bg-elev);color:var(--text);cursor:pointer;transition:all .18s ease}
+.icon-btn:hover{transform:translateY(-1px);border-color:var(--ring);box-shadow:0 0 0 3px rgb(99 102 241 / .15)}
+.task-form{display:grid;grid-template-columns:1fr auto;gap:12px;margin:28px 0}
+.task-form input[type=text]{height:48px;border-radius:12px;border:1px solid var(--border);background:var(--bg-elev);padding:0 14px;color:var(--text);outline:none}
+.task-form input[type=text]::placeholder{color:var(--muted)}
+.task-form .primary{height:48px;border-radius:12px;border:0;background:var(--primary);color:white;padding:0 18px;font-weight:600;cursor:pointer;transition:background .2s, transform .15s}
+.task-form .primary:hover{background:var(--primary-600);transform:translateY(-1px)}
+.controls{display:flex;align-items:center;justify-content:space-between;margin:8px 0 12px 0}
+.filters{display:flex;gap:8px;align-items:center}
+.filters input{display:none}
+.filters label{padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--muted);cursor:pointer;background:var(--bg-elev);transition:all .18s}
+.filters input:checked + label{color:white;border-color:var(--ring);box-shadow:0 0 0 3px rgb(99 102 241 / .15)}
+.controls-right{display:flex;gap:12px;align-items:center;color:var(--muted)}
+.controls-right .ghost{background:transparent;border:1px solid var(--border);color:var(--muted);padding:8px 12px;border-radius:10px;cursor:pointer;transition:all .18s}
+.controls-right .ghost:hover{border-color:var(--ring);color:#fff}
+.task-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.task{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,#0f172a,#0b1220)}
+.task-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.task .toggle{appearance:none;width:20px;height:20px;border-radius:6px;border:1px solid var(--border);background:var(--bg-elev);display:grid;place-items:center;cursor:pointer;position:relative}
+.task .toggle:checked{background:linear-gradient(180deg,#1e293b,#111827);border-color:#334155}
+.task .toggle:checked::after{content:"";width:12px;height:12px;border-radius:4px;background:var(--success)}
+.task .title{user-select:none;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.task.completed .title{color:#9ca3af;text-decoration:line-through}
+.task .edit{display:none;flex:1;min-width:0;height:40px;border-radius:10px;border:1px solid var(--ring);background:#0a0f1c;color:var(--text);padding:0 10px}
+.task.editing .title{display:none}
+.task.editing .edit{display:block}
+.task-actions{display:flex;gap:6px}
+.task-actions .icon-btn{width:36px;height:36px}
+.footer{margin:22px 2px;color:var(--muted)}
+.visually-hidden{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+@media (max-width:520px){.task-form{grid-template-columns:1fr} .task-form .primary{width:100%}}
